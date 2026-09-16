@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Tiendas Landmark — S2 Septiembre</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f4f3ee;color:#1a1a18;font-size:15px;line-height:1.7;padding:2rem 1rem}
+.page{max-width:880px;margin:0 auto}
+.card{background:#fff;border-radius:16px;border:.5px solid #e0dfd8;padding:1.75rem 2rem;margin-bottom:1.1rem}
+h1{font-size:22px;font-weight:500;margin-bottom:4px}
+.subtitle{font-size:13px;color:#888780}
+.st{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#888780;margin:0 0 12px;border-bottom:.5px solid #e0dfd8;padding-bottom:6px}
+.g{display:grid;gap:10px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.mc{background:#f4f3ee;border-radius:8px;padding:12px 14px}
+.ml{font-size:11px;color:#888780;margin:0 0 3px}
+.mv{font-size:20px;font-weight:500;margin:0}
+.ms{font-size:11px;color:#888780;margin:3px 0 0}
+.up{color:#1D9E75}.warn{color:#BA7517}.dn{color:#D85A30}
+.nb{background:#E1F5EE;border-left:3px solid #1D9E75;border-radius:0 8px 8px 0;padding:10px 14px;font-size:13px;line-height:1.6;margin-top:10px}
+.wb{background:#FAEEDA;border-left:3px solid #BA7517;border-radius:0 8px 8px 0;padding:10px 14px;font-size:13px;line-height:1.6;margin-top:10px}
+table.t{width:100%;border-collapse:collapse;font-size:12px}
+table.t th{text-align:left;color:#888780;font-weight:500;padding:5px 8px 7px;border-bottom:.5px solid #e0dfd8;font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+table.t td{padding:7px 8px;border-bottom:.5px solid #e0dfd8;vertical-align:middle}
+table.t tr:last-child td{border-bottom:none}
+.total-row td{background:#f9f9f7;font-weight:500}
+.tag{font-size:10px;color:#888780;display:block;margin-top:1px}
+strong{font-weight:500}
+.prog-wrap{background:#e0dfd8;border-radius:4px;height:6px;margin-top:6px;overflow:hidden}
+.prog-bar{height:100%;border-radius:4px}
+.badge{display:inline-block;font-size:10px;padding:2px 7px;border-radius:20px;font-weight:500}
+.b-green{background:#E1F5EE;color:#0F6E56}
+.b-amber{background:#FAEEDA;color:#854F0B}
+.b-gray{background:#F1EFE8;color:#5F5E5A}
+.b-blue{background:#E6F1FB;color:#185FA5}
+.b-red{background:#FDECEA;color:#9B2B1F}
+.b-purple{background:#F3EDF7;color:#6B3A9C}
+.type-tag{font-size:10px;padding:1px 6px;border-radius:8px;font-weight:500;display:inline-block;margin-left:4px}
+.period-s1{background:#EBF4FF;border-radius:4px}
+.period-s2{background:#fff}
+/* grid cells can shrink to avoid overflow */
+.g>*{min-width:0}
+/* charts always fill their container */
+canvas{display:block;width:100%!important;max-width:100%}
+/* page never scrolls horizontally */
+.page{overflow-x:hidden}
+/* responsive breakpoints */
+@media(max-width:820px){
+  .g4{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .g3,.g2{grid-template-columns:1fr}
+  .card{padding:1.25rem 1rem}
+  body{padding:1rem .5rem}
+}
+</style></head><body><div class="page">
+
+<!-- HEADER -->
+<div class="card">
+  <h1>Tiendas Landmark — Semana 2 Septiembre</h1>
+  <p class="subtitle">Corte 5–10/9 (6 días) · Acumulado mes 1–10/9 · vs S1 sep · Objetivo mensual $290M · SALE 12 CSI + 5% OFF · LS6 "Belu" consolidado · Meta + Google + TikTok</p>
+</div>
+
+<!-- VS OBJETIVOS SEP -->
+<div class="card" style="border-left:4px solid #1D9E75">
+  <div class="st">Septiembre — avance vs objetivos (al 10/9)</div>
+
+  <div style="margin-bottom:16px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:6px">
+      <div>
+        <span style="font-size:22px;font-weight:500">$72,0M</span>
+        <span style="font-size:13px;color:#888780;margin-left:6px">facturado de $290,0M objetivo mensual</span>
+      </div>
+      <span style="font-size:20px;font-weight:500;color:#D85A30">24,8%</span>
+    </div>
+    <div class="prog-wrap" style="height:10px">
+      <div class="prog-bar" style="width:24.8%;background:#1D9E75"></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;margin-top:5px;font-size:11px;color:#888780">
+      <span>$0</span>
+      <span style="color:#D85A30">Deberían ser ~$96,7M al 10/9 (33% del mes)</span>
+      <span>$290M</span>
+    </div>
+  </div>
+
+  <div class="g g3" style="margin-bottom:14px">
+    <div class="mc">
+      <p class="ml">Ritmo actual 1–10/9</p>
+      <p class="mv warn">$7,2M/día</p>
+      <p class="ms">promedio período</p>
+    </div>
+    <div class="mc">
+      <p class="ml">Ritmo necesario (todo el mes)</p>
+      <p class="mv">$9,67M/día</p>
+      <p class="ms">para llegar a $290M</p>
+    </div>
+    <div class="mc">
+      <p class="ml">Ritmo necesario (desde hoy)</p>
+      <p class="mv dn">$10,9M/día</p>
+      <p class="ms">en los 20 días restantes</p>
+    </div>
+  </div>
+
+  <div class="g g4">
+    <div class="mc">
+      <p class="ml">ACOS perf. acum.</p>
+      <p class="mv warn">7,00%</p>
+      <p class="ms">Obj. 6,85% <span class="warn">(+15pb)</span></p>
+    </div>
+    <div class="mc">
+      <p class="ml">ACOS total acum.</p>
+      <p class="mv warn">10,98%</p>
+      <p class="ms">Obj. 9,40% <span class="warn">(+158pb)</span></p>
+    </div>
+    <div class="mc">
+      <p class="ml">Inv. perf. acumulada</p>
+      <p class="mv">$5,04M</p>
+      <p class="ms">Ritmo → $15,1M/mes · gap $4,75M</p>
+    </div>
+    <div class="mc">
+      <p class="ml">Plan mensual perf.</p>
+      <p class="mv">$19,87M</p>
+      <p class="ms">26% ejecutado a 10/9</p>
+    </div>
+  </div>
+  <div class="wb" style="margin-top:10px">Al 10/9 se llevan $72M sobre una curva esperada de $96,7M. Para alcanzar el objetivo, el ritmo debe escalar a <strong>$10,9M/día</strong> en los 20 días restantes — lo que implica una palanca comercial (Live Shopping, promoción o extensión de las 12 CSI) además de la optimización de campañas. El ACOS perf. acumulado de 7,00% está apenas 15pb sobre objetivo, dentro de rango de gestión.</div>
+</div>
+
+<!-- KPIs S2 (5-10) -->
+<div class="card">
+  <div class="st">S2 Septiembre — KPIs del período (5–10/9)</div>
+  <div class="g g4" style="margin-bottom:10px">
+    <div class="mc">
+      <p class="ml">Facturación backend</p>
+      <p class="mv">$43,7M</p>
+      <p class="ms">$7,28M/día prom.</p>
+      <p class="ms">vs S1 $7,08M/día <span class="up">(▲2,8%)</span></p>
+    </div>
+    <div class="mc">
+      <p class="ml">Pedidos</p>
+      <p class="mv">150</p>
+      <p class="ms">25,0/día prom.</p>
+      <p class="ms">vs S1 26,5/día <span class="dn">(▼5,7%)</span></p>
+    </div>
+    <div class="mc">
+      <p class="ml">Ticket promedio</p>
+      <p class="mv up">$291.159</p>
+      <p class="ms">vs S1 $267.306 <span class="up">(▲9,0%)</span></p>
+    </div>
+    <div class="mc">
+      <p class="ml">ACOS performance</p>
+      <p class="mv up">6,84%</p>
+      <p class="ms">Obj. sep 6,85% <span class="up">(▼1pb)</span></p>
+      <p class="ms">Inv. perf $2,99M</p>
+    </div>
+  </div>
+  <div class="g g4">
+    <div class="mc">
+      <p class="ml">ACOS total</p>
+      <p class="mv">9,55%</p>
+      <p class="ms">vs S1 13,19% <span class="up">(▼364pb)</span></p>
+      <p class="ms">Inv. total $4,17M</p>
+    </div>
+    <div class="mc">
+      <p class="ml">Inv. performance</p>
+      <p class="mv">$2,99M</p>
+      <p class="ms">Meta $2,28M + Google $0,71M</p>
+    </div>
+    <div class="mc">
+      <p class="ml">Sesiones GA4</p>
+      <p class="mv">28.376</p>
+      <p class="ms">4.729/día prom.</p>
+      <p class="ms">vs S1 5.028/día <span class="dn">(▼5,9%)</span></p>
+    </div>
+    <div class="mc">
+      <p class="ml">Acum. mes (1–10/9)</p>
+      <p class="mv">$72,0M</p>
+      <p class="ms">24,8% del obj. $290M</p>
+      <div class="prog-wrap"><div class="prog-bar" style="width:24.8%;background:#1D9E75"></div></div>
+    </div>
+  </div>
+  <div class="nb">S2 consolida la mejora: ACOS performance llega a 6,84%, prácticamente en objetivo (6,85%), y el ticket sube 9% vs S1 hasta $291K — señal de que el mix High Ticket gana peso una vez que se normaliza la inversión post-LS6. El ACOS total baja 364pb respecto a S1 al reducirse el gasto en campañas de evento.</div>
+</div>
+
+<!-- FACTURACIÓN DIARIA 10 DÍAS -->
+<div class="card">
+  <div class="st">Facturación diaria — S1 vs S2 (1–10/9)</div>
+  <canvas id="chartFac" style="max-height:210px"></canvas>
+  <div class="nb" style="margin-top:10px">El 9/9 registra el día más fuerte del período ($11,3M), potenciado por el efecto post-SALE acumulado y el cierre de carritos abiertos durante el LS6. Los miércoles y jueves muestran el patrón de mayor conversión, mientras viernes y lunes representan caídas esperadas del fin/inicio de semana.</div>
+</div>
+
+<!-- COMPARATIVA S1 vs S2 -->
+<div class="card">
+  <div class="st">Comparativa S1 (1–4/9) vs S2 (5–10/9) — base diaria</div>
+  <div class="g g2" style="gap:10px;margin-bottom:14px">
+    <div style="background:#f4f3ee;border-radius:10px;padding:12px 14px">
+      <div style="font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:#888780;margin-bottom:10px;text-align:center">S1 · 1–4/9</div>
+      <div style="display:flex;flex-direction:column;gap:7px">
+        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:.5px solid #e0dfd8;padding-bottom:6px">
+          <span style="font-size:11px;color:#888780">Fac. /día</span><span style="font-size:14px;font-weight:500">$7,08M</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:.5px solid #e0dfd8;padding-bottom:6px">
+          <span style="font-size:11px;color:#888780">Pedidos /día</span><span style="font-size:14px;font-weight:500">26,5</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:.5px solid #e0dfd8;padding-bottom:6px">
+          <span style="font-size:11px;color:#888780">Ticket prom.</span><span style="font-size:14px;font-weight:500">$267K</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:.5px solid #e0dfd8;padding-bottom:6px">
+          <span style="font-size:11px;color:#888780">ACOS perf.</span><span style="font-size:14px;font-weight:500">7,24%</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:11px;color:#888780">Sesiones /día</span><span style="font-size:14px;font-weight:500">5.028</span>
+        </div>
+      </div>
+    </div>
+    <div style="background:#E1F5EE;border-radius:10px;padding:12px 14px">
+      <div style="font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:#0F6E56;margin-bottom:10px;text-align:center">S2 · 5–10/9</div>
+      <div style="display:flex;flex-direction:column;gap:7px">
+        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:.5px solid #B8E8D4;padding-bottom:6px">
+          <span style="font-size:11px;color:#0F6E56">Fac. /día</span>
+          <span style="font-size:14px;font-weight:500">$7,28M <span class="up" style="font-size:10px">▲2,8%</span></span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:.5px solid #B8E8D4;padding-bottom:6px">
+          <span style="font-size:11px;color:#0F6E56">Pedidos /día</span>
+          <span style="font-size:14px;font-weight:500">25,0 <span class="dn" style="font-size:10px">▼5,7%</span></span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:.5px solid #B8E8D4;padding-bottom:6px">
+          <span style="font-size:11px;color:#0F6E56">Ticket prom.</span>
+          <span style="font-size:14px;font-weight:500">$291K <span class="up" style="font-size:10px">▲9,0%</span></span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:.5px solid #B8E8D4;padding-bottom:6px">
+          <span style="font-size:11px;color:#0F6E56">ACOS perf.</span>
+          <span style="font-size:14px;font-weight:500">6,84% <span class="up" style="font-size:10px">▼40pb</span></span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:11px;color:#0F6E56">Sesiones /día</span>
+          <span style="font-size:14px;font-weight:500">4.729 <span class="dn" style="font-size:10px">▼5,9%</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <table class="t">
+    <thead><tr><th>Métrica</th><th>S1 (1–4/9)</th><th>S2 (5–10/9)</th><th>Var.</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Fac. diaria prom.</strong></td><td>$7.083.608</td><td>$7.278.969</td><td><span class="up">▲2,8%</span></td></tr>
+      <tr><td><strong>Pedidos/día prom.</strong></td><td>26,5</td><td>25,0</td><td><span class="dn">▼5,7%</span></td></tr>
+      <tr><td><strong>Ticket promedio</strong></td><td>$267.306</td><td>$291.159</td><td><span class="up">▲9,0%</span></td></tr>
+      <tr><td><strong>ACOS performance</strong></td><td>7,24%</td><td>6,84%</td><td><span class="up">▼40pb</span></td></tr>
+      <tr><td><strong>ACOS total</strong></td><td>13,19%</td><td>9,55%</td><td><span class="up">▼364pb</span></td></tr>
+      <tr><td><strong>Sessions/día prom.</strong></td><td>5.028</td><td>4.729</td><td><span class="dn">▼5,9%</span></td></tr>
+      <tr class="total-row"><td><strong>Acum. 1–10/9</strong></td><td colspan="2">$72,0M | 256 ped. | ticket $281.282 | ACOS perf 7,00%</td><td><span>Obj. sep 24,8%</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- CATEGORÍAS -->
+<div class="card">
+  <div class="st">Revenue por categoría — septiembre acumulado (items backend)</div>
+  <p style="font-size:11px;color:#888780;margin-bottom:12px">Base: items backend cargados para septiembre (período en curso). Alfombras incluye línea SALAMA (SER, MIA, TUR).</p>
+  <div class="g g2" style="gap:14px;margin-bottom:14px">
+    <canvas id="chartCatBar" style="max-height:260px;min-height:200px;align-self:start"></canvas>
+    <div>
+      <table class="t">
+        <thead><tr><th>Categoría</th><th>Rev.</th><th>%</th><th>Uds</th><th>$/u</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Alfombras</strong></td><td>$27,7M</td><td>46,1%</td><td>189</td><td>$146K</td></tr>
+          <tr><td><strong>Sillones & Sofás</strong></td><td>$8,5M</td><td>14,2%</td><td>14</td><td>$608K</td></tr>
+          <tr><td><strong>Mesas</strong></td><td>$5,6M</td><td>9,3%</td><td>24</td><td>$233K</td></tr>
+          <tr><td><strong>Otros</strong></td><td>$5,4M</td><td>9,1%</td><td>313</td><td>$17K</td></tr>
+          <tr><td><strong>Muebles</strong></td><td>$4,4M</td><td>7,4%</td><td>6</td><td>$741K</td></tr>
+          <tr><td><strong>Textil & Cama</strong></td><td>$2,1M</td><td>3,6%</td><td>17</td><td>$125K</td></tr>
+          <tr><td><strong>Sillas & Banquetas</strong></td><td>$1,9M</td><td>3,2%</td><td>30</td><td>$63K</td></tr>
+          <tr><td><strong>Iluminación</strong></td><td>$1,7M</td><td>2,8%</td><td>12</td><td>$142K</td></tr>
+          <tr><td><strong>Deco</strong></td><td>$0,9M</td><td>1,4%</td><td>26</td><td>$33K</td></tr>
+          <tr><td><strong>Organización</strong></td><td>$0,8M</td><td>1,4%</td><td>32</td><td>$26K</td></tr>
+          <tr><td><strong>Aromas</strong></td><td>$0,5M</td><td>0,8%</td><td>19</td><td>$24K</td></tr>
+          <tr class="total-row"><td><strong>Total</strong></td><td>$59,9M</td><td>100%</td><td>682</td><td>$88K</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="nb">Alfombras consolida su liderazgo con 46,1% del revenue — la familia SALAMA (SER 200×290 con 38u, SER 160×230 con 35u) explica la mayor parte del volumen. Sillones & Sofás con ticket promedio de $608K/u tracciona el ticket general pese a pocas unidades. Muebles destaca con $741K/u en solo 6 piezas (Vajillero Rivoli + sofás premium).</div>
+</div>
+
+<!-- TOP PRODUCTOS -->
+<div class="card">
+  <div class="st">Top 10 productos — septiembre acumulado</div>
+  <table class="t">
+    <thead><tr><th>#</th><th>Producto</th><th>Categoría</th><th>Uds</th><th>Facturado</th><th>$/u</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><strong>SALAMA SER 200×290</strong></td><td><span class="badge b-green">Alfombras</span></td><td>38</td><td>$6.429.300</td><td>$169.192</td></tr>
+      <tr><td>2</td><td><strong>SALAMA SER 160×230</strong></td><td><span class="badge b-green">Alfombras</span></td><td>35</td><td>$3.861.550</td><td>$110.330</td></tr>
+      <tr><td>3</td><td><strong>SISALO SIENA 300×400</strong></td><td><span class="badge b-green">Alfombras</span></td><td>2</td><td>$3.402.000</td><td>$1.701.000</td></tr>
+      <tr><td>4</td><td><strong>SILLON LALA OFF WHITE</strong></td><td><span class="badge b-blue">Sillones</span></td><td>9</td><td>$3.089.000</td><td>$343.222</td></tr>
+      <tr><td>5</td><td><strong>SALAMA MIA 200×290</strong></td><td><span class="badge b-green">Alfombras</span></td><td>10</td><td>$1.760.000</td><td>$176.000</td></tr>
+      <tr><td>6</td><td><strong>SALAMA TUR 160×230</strong></td><td><span class="badge b-green">Alfombras</span></td><td>16</td><td>$1.738.100</td><td>$108.631</td></tr>
+      <tr><td>7</td><td><strong>VAJILLERO RIVOLI SMOKED 105</strong></td><td><span class="badge b-amber">Muebles</span></td><td>2</td><td>$1.688.750</td><td>$844.375</td></tr>
+      <tr><td>8</td><td><strong>SOFA TRYG GREY</strong></td><td><span class="badge b-blue">Sillones</span></td><td>1</td><td>$1.617.000</td><td>$1.617.000</td></tr>
+      <tr><td>9</td><td><strong>SOFA MEILO CARAMEL 160</strong></td><td><span class="badge b-blue">Sillones</span></td><td>1</td><td>$1.573.200</td><td>$1.573.200</td></tr>
+      <tr><td>10</td><td><strong>SALAMA MIA 240×340</strong></td><td><span class="badge b-green">Alfombras</span></td><td>4</td><td>$1.379.700</td><td>$344.925</td></tr>
+    </tbody>
+  </table>
+  <div class="wb">La familia SALAMA domina el top con 6 SKUs en los primeros 10 puestos. El Sillón Lala Off White lidera Sillones con 9 unidades — posible señal de agotamiento de stock del Sillón Kaya. Los dos sofás premium (Tryg Grey $1,6M y Meilo Caramel $1,57M) ingresan con ticket de lujo, aportando al alza del ticket promedio en S2.</td>
+</div>
+
+<!-- META ADS -->
+<div class="card">
+  <div class="st">Meta Ads — campañas performance (1–10/9)</div>
+  <table class="t">
+    <thead><tr><th>Campaña</th><th>Inv.</th><th>Compras</th><th>Revenue</th><th>ACOS</th></tr></thead>
+    <tbody>
+      <tr><td><strong>RMKT High Tickets</strong><span class="tag">Upper + Lower funnel</span></td><td>$498.444</td><td>14,0</td><td>$5.850.000</td><td><span class="up">8,5%</span></td></tr>
+      <tr><td><strong>High Tickets</strong><span class="tag">Sillones + Alfombras XL + Mesas</span></td><td>$1.034.974</td><td>19,0</td><td>$3.150.500</td><td><span class="warn">32,9%</span></td></tr>
+      <tr><td><strong>Low Tickets</strong><span class="tag">Iluminación + Bazar + Sillas</span></td><td>$638.470</td><td>10,0</td><td>$3.444.100</td><td><span class="warn">18,5%</span></td></tr>
+      <tr><td><strong>Catálogo Adv</strong><span class="tag">All mix dinámico</span></td><td>$600.868</td><td>11,0</td><td>$1.766.955</td><td><span class="warn">34,0%</span></td></tr>
+      <tr><td><strong>RMKT OpenMix</strong><span class="tag">Retargeting general</span></td><td>$544.412</td><td>12,0</td><td>$1.581.600</td><td><span class="warn">34,4%</span></td></tr>
+      <tr><td><strong>Mid Tickets</strong><span class="tag">Ropa de cama + Cocción</span></td><td>$551.817</td><td>9,0</td><td>$933.500</td><td><span class="dn">59,1%</span></td></tr>
+      <tr class="total-row"><td><strong>Total performance Meta</strong></td><td>$3.868.985</td><td>75,0</td><td>$16.726.655</td><td><span class="warn">23,1%</span></td></tr>
+    </tbody>
+  </table>
+  <div class="nb">RMKT High Tickets es el adset más eficiente: $498K de inversión generando $5,85M en revenue (ACOS 8,5%) — 35% del revenue de Meta con solo 13% de la inversión. Low Tickets también mejora con ACOS 18,5%. Mid Tickets presenta el ACOS más alto (59,1%) sobre un revenue relativamente bajo, lo que sugiere revisar su composición.</div>
+</div>
+
+<!-- META ADS - ANUNCIOS -->
+<div class="card">
+  <div class="st">Meta Ads — anuncios con compras (1–10/9)</div>
+  <table class="t">
+    <thead><tr><th>Anuncio</th><th>Campaña</th><th>Inv.</th><th>Comp.</th><th>Revenue</th><th>ACOS</th></tr></thead>
+    <tbody>
+      <tr><td><strong>VID_Post_LS3 – Copia</strong></td><td><span class="badge b-green">RMKT High</span></td><td>$181.836</td><td>5,0</td><td>$4.756.900</td><td><span class="up">3,8%</span></td></tr>
+      <tr><td><strong>CATALOGO_HOME_SALE_12CSI_5OFF</strong></td><td><span class="badge b-gray">Low</span></td><td>$333.984</td><td>3,0</td><td>$2.163.500</td><td><span class="warn">15,4%</span></td></tr>
+      <tr><td><strong>CATALOGO_HOME_SALE_12CSI_5OFF</strong></td><td><span class="badge b-amber">Catálogo</span></td><td>$601.072</td><td>11,0</td><td>$1.766.955</td><td><span class="warn">34,0%</span></td></tr>
+      <tr><td><strong>IMG_LINK_SALE_Alfombras_12CSI</strong></td><td><span class="badge b-gray">Low</span></td><td>$255.390</td><td>6,0</td><td>$1.184.700</td><td><span class="warn">21,6%</span></td></tr>
+      <tr><td><strong>VID_Post_Alfombra_Salamanca</strong></td><td><span class="badge b-blue">High</span></td><td>$340.831</td><td>8,0</td><td>$984.800</td><td><span class="warn">34,6%</span></td></tr>
+      <tr><td><strong>VID_Post_LS4_Generic</strong></td><td><span class="badge b-green">RMKT Open</span></td><td>$194.509</td><td>7,0</td><td>$912.300</td><td><span class="warn">21,3%</span></td></tr>
+      <tr><td><strong>VID_HOME_SALE_live-muebles 04-09</strong></td><td><span class="badge b-blue">High</span></td><td>$64.229</td><td>2,0</td><td>$821.400</td><td><span class="up">7,8%</span></td></tr>
+      <tr><td><strong>IMG_LINK_SALE_Sillón Lala 12CSI</strong></td><td><span class="badge b-blue">High</span></td><td>$187.227</td><td>4,0</td><td>$788.800</td><td><span class="warn">23,7%</span></td></tr>
+      <tr><td><strong>VID_Post_Alfombra_Salamanca</strong></td><td><span class="badge b-green">RMKT High</span></td><td>$143.191</td><td>5,0</td><td>$724.700</td><td><span class="warn">19,8%</span></td></tr>
+      <tr><td><strong>IMG_Alfombra_Salamanca 05-08</strong></td><td><span class="badge b-purple">Mid</span></td><td>$224.327</td><td>4,0</td><td>$478.800</td><td><span class="warn">46,9%</span></td></tr>
+      <tr><td><strong>VID_HOME_SALE_live-dormitorio 04-09</strong></td><td><span class="badge b-purple">Mid</span></td><td>$54.048</td><td>1,0</td><td>$239.100</td><td><span class="warn">22,6%</span></td></tr>
+    </tbody>
+  </table>
+  <div class="wb"><strong>Dos anuncios estrella concentran el mayor eficiencia:</strong> VID_Post_LS3 – Copia (ACOS 3,8%, $4,76M revenue con $181K de inversión) y VID_HOME_SALE_live-muebles (ACOS 7,8%, $821K). Los creativos de catálogo SALE_12CSI_5OFF generan volumen pero con ACOS entre 15–34%. Se sugiere revisar el presupuesto de IMG_Alfombra_Salamanca en Mid Tickets (ACOS 46,9% sobre $478K revenue).</div>
+</div>
+
+<!-- META - ENGAGEMENT / LS -->
+<div class="card">
+  <div class="st">Meta Ads — campañas LS6 y engagement (1–10/9)</div>
+  <table class="t">
+    <thead><tr><th>Campaña / Anuncio</th><th>Tipo</th><th>Inv.</th><th>Impresiones</th><th>Engagement</th><th>CTR</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Trafico Web LS</strong><br><span class="tag">VID_LINK_LS6-BELU</span></td><td><span class="badge b-blue">LS Tráfico</span></td><td>$153.254</td><td>—</td><td>43.912</td><td>4,90%</td></tr>
+      <tr><td><strong>Interacciones LS</strong><br><span class="tag">VID_LINK_LS6-BELU</span></td><td><span class="badge b-blue">LS Interac.</span></td><td>$206.775</td><td>—</td><td>37.662</td><td>0,17%</td></tr>
+      <tr><td><strong>Awareness LS</strong><br><span class="tag">VID_LINK_LS6-BELU</span></td><td><span class="badge b-blue">LS Awrns.</span></td><td>$72.169</td><td>—</td><td>17.685</td><td>0,05%</td></tr>
+      <tr><td><strong>Awareness Geo</strong></td><td><span class="badge b-gray">Geo Brand</span></td><td>$158.992</td><td>—</td><td>—</td><td>0,13%</td></tr>
+      <tr><td><strong>Trafico Web</strong></td><td><span class="badge b-gray">Tráfico</span></td><td>$90.057</td><td>—</td><td>—</td><td>7,50%</td></tr>
+      <tr><td><strong>REEL-Frascos-25-03</strong><span class="tag">Seguidores</span></td><td><span class="badge b-purple">Seg.</span></td><td>$652.158</td><td>—</td><td>134.261</td><td>4,34%</td></tr>
+      <tr><td><strong>REEL-Solo_voy_a_ver</strong><span class="tag">Seguidores</span></td><td><span class="badge b-purple">Seg.</span></td><td>$299.387</td><td>—</td><td>41.529</td><td>4,59%</td></tr>
+    </tbody>
+  </table>
+  <div class="nb">Las piezas de LS6 acumularon 99.259 interacciones totales entre las tres campañas del evento. En seguidores, REEL-Frascos sigue siendo la pieza de mayor engagement (134K) — representa el mayor volumen de engagement de toda la cuenta en el período.</div>
+</div>
+
+<!-- GOOGLE ADS -->
+<div class="card">
+  <div class="st">Google Ads — 1–10/9</div>
+  <table class="t">
+    <thead><tr><th>Campaña</th><th>Etapa</th><th>Inv.</th><th>CTR</th><th>Compras</th><th>Revenue</th><th>ACOS</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Brand Search</strong></td><td><span class="badge b-green">Perf</span></td><td>$335.437</td><td><span class="up">45,50%</span></td><td>20,5</td><td>$4.738.100</td><td><span class="up">7,1%</span></td></tr>
+      <tr><td><strong>PMax Purchase General</strong></td><td><span class="badge b-green">Perf</span></td><td>$679.491</td><td>3,53%</td><td>11,0</td><td>$1.791.055</td><td><span class="warn">37,9%</span></td></tr>
+      <tr><td><strong>Search HighTicket</strong></td><td><span class="badge b-green">Perf</span></td><td>$157.049</td><td>3,29%</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr><td><strong>PMax GeoLocal</strong></td><td><span class="badge b-amber">Geo</span></td><td>$98.908</td><td>4,15%</td><td>1,0</td><td>$155.000</td><td><span class="dn">63,7%</span></td></tr>
+      <tr><td><strong>Video Awareness Geo</strong></td><td><span class="badge b-gray">Brand</span></td><td>$83.460</td><td>0,03%</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr><td><strong>Search Conquest</strong></td><td><span class="badge b-gray">Tráfico</span></td><td>$71.785</td><td>0,90%</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr class="total-row"><td><strong>Total Google</strong></td><td></td><td>$1.426.129</td><td>—</td><td>32,5</td><td>$6.684.155</td><td><span class="warn">21,3%</span></td></tr>
+    </tbody>
+  </table>
+  <div class="nb">Brand Search es el canal Google más eficiente: CTR 45,50%, ACOS 7,1% con $335K de inversión. PMax Purchase General mejora su ACOS a 37,9% en la ventana de 10 días, confirmando el lag de atribución de S1. Google totaliza $6,68M en revenue (atribución "Compra").</div>
+</div>
+
+<!-- GA4 FUNNEL -->
+<div class="card">
+  <div class="st">Funnel GA4 — 1–10/9 acumulado + diario (S2)</div>
+  <div class="g g2" style="gap:14px;margin-bottom:12px">
+    <div>
+      <div style="display:flex;flex-direction:column;gap:0">
+        <div style="background:#185FA5;color:#fff;border-radius:10px 10px 0 0;padding:14px 18px;text-align:center">
+          <div style="font-size:10px;opacity:0.8;text-transform:uppercase;letter-spacing:.06em">Sesiones (1–10/9)</div>
+          <div style="font-size:26px;font-weight:500">48.446</div>
+          <div style="font-size:10px;opacity:0.7">4.845/día · 25.877 nuevos usuarios (53,4%)</div>
+        </div>
+        <div style="background:#2A7BC7;color:#fff;padding:12px 18px;text-align:center;margin:0 16px">
+          <div style="font-size:10px;opacity:0.8;text-transform:uppercase;letter-spacing:.06em">Add to Cart</div>
+          <div style="font-size:22px;font-weight:500">7.608</div>
+          <div style="font-size:10px;opacity:0.7">15,7% de sesiones</div>
+        </div>
+        <div style="background:#1D9E75;color:#fff;border-radius:0 0 10px 10px;padding:12px 18px;text-align:center;margin:0 40px">
+          <div style="font-size:10px;opacity:0.8;text-transform:uppercase;letter-spacing:.06em">Transacciones</div>
+          <div style="font-size:20px;font-weight:500">120</div>
+          <div style="font-size:10px;opacity:0.7">CVR 0,25% · 1,6% de ATC</div>
+        </div>
+      </div>
+    </div>
+    <canvas id="chartSessions" style="max-height:190px;align-self:center"></canvas>
+  </div>
+  <div class="wb">El ATC rate de 15,7% se mantiene por encima del promedio de agosto (14,5%), manteniendo la intención de compra. El 6/9 fue el día de mayor tráfico del período (6.103 sesiones) coincidiendo con el mayor volumen de ATC (1.107). CVR 0,25% es consistente con un período de SALE con tráfico awareness mixto.</div>
+</div>
+
+<!-- TIKTOK -->
+<div class="card">
+  <div class="st">TikTok — 1–10/9</div>
+  <div class="g g3" style="margin-bottom:10px">
+    <div class="mc"><p class="ml">Inversión total</p><p class="mv">$275.527</p><p class="ms">Awareness + Followers + LS</p></div>
+    <div class="mc"><p class="ml">Impresiones</p><p class="mv">685.123</p><p class="ms">Canal awareness</p></div>
+    <div class="mc"><p class="ml">Followers TikTok</p><p class="mv up">268</p><p class="ms">CPF $238 (camp. Followers)</p></div>
+  </div>
+  <table class="t" style="margin-bottom:10px">
+    <thead><tr><th>Campaña</th><th>Inversión</th><th>Objetivo</th><th>CTR</th></tr></thead>
+    <tbody>
+      <tr><td><strong>SH_TL_TT_Awareness</strong></td><td>$74.968</td><td>Awareness</td><td>0,11%</td></tr>
+      <tr><td><strong>SH_TL_TT_Trafico_LS</strong></td><td>$69.364</td><td>Tráfico LS6</td><td>3,87%</td></tr>
+      <tr><td><strong>SH_TL_TT_Awareness_LS_V2</strong></td><td>$67.365</td><td>Awareness LS6</td><td>0,11%</td></tr>
+      <tr><td><strong>SH_TL_TT_Followers</strong></td><td>$63.830</td><td>Seguidores</td><td>3,81%</td></tr>
+    </tbody>
+  </table>
+  <div class="nb">Las campañas de LS6 en TikTok (Trafico_LS + Awareness_LS_V2) totalizaron $136.729 de inversión para el evento del 2/9 — se propone redirigir ese presupuesto en S3 hacia Followers ($238 CPF) y Tráfico general ahora que el evento ya cerró.</div>
+</div>
+
+<!-- SEGUIDORES META -->
+<div class="card">
+  <div class="st">Seguidores Meta — evolución S1 vs S2 (1–10/9)</div>
+  <div class="g g4" style="margin-bottom:12px">
+    <div class="mc"><p class="ml">Followers PAID (1–10/9)</p><p class="mv">3.927</p><p class="ms">393/día prom.</p></div>
+    <div class="mc"><p class="ml">CPF acum. 1–10/9</p><p class="mv warn">$375</p><p class="ms">vs $252 agosto completo</p></div>
+    <div class="mc"><p class="ml">CPF S2 (5–10/9)</p><p class="mv up">$284</p><p class="ms">vs S1 $517 <span class="up">(▼45%)</span></p></div>
+    <div class="mc"><p class="ml">Inv. seguidores</p><p class="mv">$1.474.269</p><p class="ms">Camp. base + LS</p></div>
+  </div>
+  <canvas id="chartCPF" style="max-height:160px;margin-bottom:10px"></canvas>
+  <div class="nb">El CPF se normaliza a lo largo del período: de $616 el 2/9 (pico del LS6) a $243 el 6/9 — confirma que el costo elevado de S1 se debía al peso de la campaña de tráfico del evento. El CPF de S2 ($284) ya está próximo al benchmark de agosto ($252), y los días 6/9 y 9/9 registraron los mejores días de captación (621 y 521 followers respectivamente).</div>
+</div>
+
+<!-- MIX CATEGORÍAS S1 → S2 -->
+<div class="card">
+  <div class="st">Mix de categorías — lectura S1 → S2</div>
+  <p style="font-size:12px;color:#888780;margin-bottom:12px">Sin split diario en el backend, se infiere el desplazamiento de mix a partir del cambio de ticket promedio (+9%) y los top productos del período.</p>
+  <table class="t" style="margin-bottom:14px">
+    <thead><tr><th>Señal</th><th>S1 (1–4/9)</th><th>S2 (5–10/9)</th><th>Lectura</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Ticket promedio</strong></td>
+        <td>$267.306</td>
+        <td>$291.159</td>
+        <td><span class="up">Mix se mueve hacia High Ticket</span></td>
+      </tr>
+      <tr>
+        <td><strong>Pedidos/día</strong></td>
+        <td>26,5</td>
+        <td>25,0</td>
+        <td>Menos unidades, más valor por pedido</td>
+      </tr>
+      <tr>
+        <td><strong>Driver del ticket S2</strong></td>
+        <td colspan="2">Sofa Tryg $1,6M · Sofa Meilo $1,57M · Vajillero Rivoli $844K (3 SKUs premium)</td>
+        <td><span class="up">Muebles/Sillones premium</span></td>
+      </tr>
+      <tr>
+        <td><strong>Volumen S1–S2</strong></td>
+        <td colspan="2">SALAMA domina: 6 de top 10 SKUs · SER 200×290 lidera con 38u</td>
+        <td>Alfombras traccionan pedidos</td>
+      </tr>
+      <tr>
+        <td><strong>Categoría a monitorear</strong></td>
+        <td colspan="2">Sillones: 14u totales a $608K/u — Lala Off White lidera con 9u</td>
+        <td><span class="warn">Riesgo de stock</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="nb">El mix en S2 se desplaza hacia High Ticket: menos pedidos pero mayor valor unitario, impulsado por sofás premium y muebles. Alfombras SALAMA sostienen el volumen total. La variable clave para S3 es disponibilidad de stock en Sillones — si el Lala Off White se agota, el ticket promedio puede caer.</div>
+</div>
+
+<!-- ACCIONABLES -->
+<div class="card">
+  <div class="st">Accionables — Semana 3 septiembre</div>
+
+  <p style="font-size:12px;font-weight:500;color:#1a1a18;margin:4px 0 8px;text-transform:uppercase;letter-spacing:.04em">Performance</p>
+  <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:16px">
+
+    <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 12px;background:#f4f3ee;border-radius:8px;border-left:3px solid #1D9E75">
+      <span style="font-size:18px;line-height:1">🏆</span>
+      <div>
+        <strong style="font-size:12px">RMKT High Tickets: ACOS 8,5% — escalar presupuesto en S3</strong>
+        <p style="font-size:12px;color:#444;margin-top:2px">VID_Post_LS3 – Copia generó $4,75M con $181K de inversión (ACOS 3,8%). Se propone incrementar el presupuesto del adset y monitorear frecuencia: si supera 2,5, ampliar la ventana de retargeting.</p>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 12px;background:#f4f3ee;border-radius:8px;border-left:3px solid #D85A30">
+      <span style="font-size:18px;line-height:1">⚠️</span>
+      <div>
+        <strong style="font-size:12px">Mid Tickets: ACOS 59,1% — reubicar IMG_Alfombra_Salamanca en adset High</strong>
+        <p style="font-size:12px;color:#444;margin-top:2px">El anuncio tiene ticket real de $478K y está en el adset Mid. Moverlo a High Tickets corrige la atribución y reduce el ACOS del adset Mid inmediatamente.</p>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 12px;background:#f4f3ee;border-radius:8px;border-left:3px solid #BA7517">
+      <span style="font-size:18px;line-height:1">🛒</span>
+      <div>
+        <strong style="font-size:12px">Catálogo Adv: ACOS 34% — aplicar filtro ≥$300K al catálogo dinámico</strong>
+        <p style="font-size:12px;color:#444;margin-top:2px">El ticket promedio implícito es $161K/compra: confirma que arrastra Low Tickets. Filtrar el catálogo por precio mínimo mejora el ACOS sin reducir presupuesto.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <p style="font-size:12px;font-weight:500;color:#1a1a18;margin:4px 0 8px;text-transform:uppercase;letter-spacing:.04em">Mix & Comercial</p>
+  <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:16px">
+
+    <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 12px;background:#f4f3ee;border-radius:8px;border-left:3px solid #BA7517">
+      <span style="font-size:18px;line-height:1">🛋️</span>
+      <div>
+        <strong style="font-size:12px">Sillones: 14u a $608K/u — confirmar stock de Sillón Lala y Sillón Kaya</strong>
+        <p style="font-size:12px;color:#444;margin-top:2px">El Lala Off White lidera con 9 de las 14 unidades. Si el stock se agota, el ticket promedio puede caer en S3. Confirmar disponibilidad y activar el Kaya (sustituto) en la campaña High Tickets si fuera necesario.</p>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 12px;background:#f4f3ee;border-radius:8px;border-left:3px solid #BA7517">
+      <span style="font-size:18px;line-height:1">📦</span>
+      <div>
+        <strong style="font-size:12px">Alfombras SALAMA: 6 SKUs en top 10 — verificar reposición antes de S3</strong>
+        <p style="font-size:12px;color:#444;margin-top:2px">SER 200×290 lidera el período con 38u. Con el SALE activo, el agotamiento de SALAMA comprometería el volumen de pedidos que sostiene la facturación diaria.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <p style="font-size:12px;font-weight:500;color:#1a1a18;margin:4px 0 8px;text-transform:uppercase;letter-spacing:.04em">Seguidores & Branding</p>
+  <div style="display:flex;flex-direction:column;gap:7px">
+
+    <div style="display:flex;gap:10px;align-items:flex-start;padding:10px 12px;background:#f4f3ee;border-radius:8px;border-left:3px solid #1D9E75">
+      <span style="font-size:18px;line-height:1">👥</span>
+      <div>
+        <strong style="font-size:12px">CPF S2 en $284 — pausar campañas LS6 y consolidar presupuesto en campaña base</strong>
+        <p style="font-size:12px;color:#444;margin-top:2px">Con el evento cerrado, las campañas de tráfico LS ya no tienen justificación. Redirigir ese presupuesto (Meta + TikTok) a la campaña base, donde el CPF ya está próximo al benchmark de agosto ($252).</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+<script>
+// Wrap all tables for horizontal scroll on narrow screens
+document.querySelectorAll('table.t').forEach(t=>{
+  const w=document.createElement('div');
+  w.style.cssText='overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%';
+  t.parentNode.insertBefore(w,t);w.appendChild(t);
+});
+
+Chart.defaults.font.family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif";
+Chart.defaults.font.size=11;
+const gc='rgba(0,0,0,0.05)',tc='#888780';
+
+// Facturación diaria 10 días
+const fL=[['1/9','Mar'],['2/9','Mié LS6'],['3/9','Jue'],['4/9','Vie'],['5/9','Sáb'],['6/9','Dom'],['7/9','Lun'],['8/9','Mar'],['9/9','Mié'],['10/9','Jue']];
+const fD=[8988865,6787459,9313566,3244542,8472895,6551242,8739796,4663806,11308783,3937293];
+const fColors=[
+  'rgba(100,150,200,0.7)','rgba(100,150,200,0.7)','rgba(100,150,200,0.7)','rgba(100,150,200,0.7)',
+  'rgba(29,158,117,0.75)','rgba(29,158,117,0.75)','rgba(29,158,117,0.75)','rgba(29,158,117,0.75)','rgba(29,158,117,0.95)','rgba(29,158,117,0.65)'
+];
+const objDay=Array(10).fill(9666667);
+new Chart(document.getElementById('chartFac'),{type:'bar',data:{labels:fL,datasets:[
+  {label:'Facturación diaria',data:fD,backgroundColor:fColors,borderRadius:5,order:2},
+  {label:'Obj. $9,67M/día',data:objDay,type:'line',borderColor:'#D85A30',borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false,order:1}
+]},options:{responsive:true,interaction:{mode:'index',intersect:false},plugins:{legend:{labels:{color:tc,boxWidth:10,padding:12,font:{size:10}}},tooltip:{callbacks:{label:ctx=>` $${(ctx.parsed.y/1000000).toFixed(2)}M`}}},scales:{x:{ticks:{color:tc,font:{size:9}},grid:{color:gc}},y:{ticks:{color:tc,callback:v=>'$'+(v/1000000).toFixed(1)+'M'},grid:{color:gc}}}}});
+
+
+// Categorías bar horizontal
+const catL=['Alfombras','Sillones & Sofás','Mesas','Otros','Muebles','Textil & Cama','Sillas','Iluminación','Deco','Organización','Aromas'];
+const catV=[27.7,8.5,5.6,5.4,4.4,2.1,1.9,1.7,0.9,0.8,0.5];
+const catColors2=['#1D9E75','#185FA5','#BA7517','#888780','#C9922F','#5F5E5A','#3A8F6F','#D85A30','#7A4FA0','#8B9E3A','#C0BDB5'];
+new Chart(document.getElementById('chartCatBar'),{type:'bar',data:{
+  labels:catL,
+  datasets:[{label:'Revenue ($M)',data:catV,backgroundColor:catColors2,borderRadius:4}]
+},options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` $${ctx.parsed.x.toFixed(1)}M`}}},scales:{x:{ticks:{color:tc,callback:v=>'$'+v+'M'},grid:{color:gc}},y:{ticks:{color:tc,font:{size:9}},grid:{display:false}}}}});
+
+// Sessions + ATC diario
+const sL=['1/9','2/9','3/9','4/9','5/9','6/9','7/9','8/9','9/9','10/9'];
+const sSess=[4448,5701,5203,4718,4084,6103,4904,4624,4686,3975];
+const sATC=[781,848,837,789,778,1107,958,682,828,468];
+new Chart(document.getElementById('chartSessions'),{type:'bar',data:{labels:sL,datasets:[
+  {label:'Sesiones',data:sSess,backgroundColor:'rgba(24,95,165,0.55)',borderRadius:4,yAxisID:'y',order:2},
+  {label:'Add to Cart',data:sATC,type:'line',borderColor:'#1D9E75',backgroundColor:'rgba(29,158,117,0.1)',fill:true,tension:0.3,pointRadius:3,yAxisID:'y1',order:1}
+]},options:{responsive:true,interaction:{mode:'index',intersect:false},plugins:{legend:{labels:{color:tc,boxWidth:10,padding:10,font:{size:10}}}},scales:{
+  x:{ticks:{color:tc,font:{size:9}},grid:{color:gc}},
+  y:{ticks:{color:tc},grid:{color:gc},title:{display:true,text:'Sesiones',color:tc,font:{size:9}}},
+  y1:{position:'right',ticks:{color:'#1D9E75'},grid:{display:false},title:{display:true,text:'ATC',color:'#1D9E75',font:{size:9}}}
+}}});
+
+// CPF diario Meta seguidores
+const cpfL=['1/9','2/9','3/9','4/9','5/9','6/9','7/9','8/9','9/9','10/9'];
+const cpfD=[547,616,473,404,302,243,290,339,300,264];
+const cpfFollow=[479,389,325,347,308,621,444,264,521,229];
+new Chart(document.getElementById('chartCPF'),{type:'bar',data:{labels:cpfL,datasets:[
+  {label:'Followers PAID/día',data:cpfFollow,backgroundColor:'rgba(29,158,117,0.55)',borderRadius:4,yAxisID:'y',order:2},
+  {label:'CPF ($)',data:cpfD,type:'line',borderColor:'#D85A30',tension:0.3,pointRadius:3,pointBackgroundColor:'#D85A30',yAxisID:'y1',order:1}
+]},options:{responsive:true,interaction:{mode:'index',intersect:false},plugins:{legend:{labels:{color:tc,boxWidth:10,padding:10,font:{size:10}}}},scales:{
+  x:{ticks:{color:tc,font:{size:9}},grid:{color:gc}},
+  y:{ticks:{color:tc},grid:{color:gc},title:{display:true,text:'Followers',color:tc,font:{size:9}}},
+  y1:{position:'right',ticks:{color:'#D85A30',callback:v=>'$'+v},grid:{display:false},title:{display:true,text:'CPF',color:'#D85A30',font:{size:9}}}
+}}});
+</script></body></html>
